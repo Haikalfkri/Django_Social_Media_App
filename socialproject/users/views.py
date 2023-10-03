@@ -17,7 +17,7 @@ def user_login(request):
                 login(request, user)
                 return HttpResponse("You successfully login")
             else:
-                return HttpResponse("Invalid login")
+                return HttpResponse("Invalid login ")
     else:
         form = LoginForm()        
     
