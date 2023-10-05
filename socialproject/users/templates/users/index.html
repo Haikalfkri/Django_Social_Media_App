@@ -7,4 +7,11 @@
 {% endfor %}
 
 <h1>Homepage for users app</h1>
+
+{% for post in posts %}
+    <h1>{{ post.title }}</h1>
+    <h2>{{ post.user }}</h2>
+    <img src="{{ post.image.url }}" alt="">
+{% endfor %}
+
 {% endblock %}

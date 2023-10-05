@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .models import Profile
+from post.models import Post
 
 from django.contrib import messages
 
@@ -45,10 +46,13 @@ def user_register(request):
     return render(request, 'users/register.html', {'form': form})
             
     
-
+# homepage
 @login_required
 def index(request):
-    return render(request, "users/index.html")
+    current_user = request.user
+    post = Post.objects.filter(user=current_user)
+    
+    return render(request, "users/index.html", {'posts': post})
 
 
 # edit user data and user profile
