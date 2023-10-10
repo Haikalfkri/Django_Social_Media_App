@@ -51,8 +51,9 @@ def user_register(request):
 def index(request):
     current_user = request.user
     post = Post.objects.filter(user=current_user)
+    profile = Profile.objects.filter(user=current_user).first()
     
-    return render(request, "users/index.html", {'posts': post})
+    return render(request, "users/index.html", {'posts': post, 'profile': profile})
 
 
 # edit user data and user profile

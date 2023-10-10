@@ -1,11 +1,41 @@
 {% extends 'users/base.html' %}
 
 {% block body %}
-<h2>Edit profile form</h2>
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ user_form.as_p }}
-    {{ profile_form.as_p }}
-    <button type="submit">Submit</button>
-</form>
+<h2 class="text-lg m-10 font-bold">Edit User Profile</h2>
+<div class="container py-5 mx-10">
+    <form method="POST" class="bg-white shadow-md m-10 px-8 rounded pt-6 pb-8 mb-4 w-3/5" enctype="multipart/form-data">
+        {% csrf_token %}
+    
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold" for="">First Name</label>
+            <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700">
+                {{ user_form.first_name }}
+            </div>
+        </div>
+    
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold" for="">Last Name</label>
+            <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700">
+                {{ user_form.last_name }}
+            </div>
+        </div>
+    
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold" for="">Email</label>
+            <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700">
+                {{ user_form.email}}
+            </div>
+        </div>
+    
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold" for="">Photo</label>
+            <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700">
+                {{ profile_form.photo}}
+            </div>
+        </div>
+    
+        <button class="bg-green-500 text-white my-5 px-5 py-2 rounded-lg" type="submit">Submit</button>
+    </form>
+</div>
+
 {% endblock %}
