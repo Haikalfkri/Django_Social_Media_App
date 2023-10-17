@@ -23,6 +23,7 @@ def create_post(request):
     return render(request, 'posts/create.html', {'form': form})
 
 
+@login_required
 def feed(request):
     posts = Post.objects.all()
     logged_user = request.user
